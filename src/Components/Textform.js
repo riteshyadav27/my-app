@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import copy from 'copy-to-clipboard';
 
 
 export default function Textform(props) {
@@ -11,6 +12,14 @@ export default function Textform(props) {
         let n = text.toLowerCase();
         setText(n);
         // console.log("clickonbutton")
+    }
+    const cleartext = () => {    
+        setText('');
+        // console.log("clickonbutton")
+    }
+    const copytext = () => {    
+        copy(text);
+        // console.log(text);
     }
     const handleOnChange = (event) => {
         setText(event.target.value);
@@ -27,6 +36,8 @@ export default function Textform(props) {
             </div>
             <button className="btn btn-primary mx-2" type="submit" onClick={Uppercase}>Convert to Uppercase</button>
             <button className="btn btn-primary mx-2" type="submit" onClick={Lowercase}>Convert to Lowercase</button>
+            <button className="btn btn-primary mx-2" type="submit" onClick={cleartext}>Clear Text</button>
+            <button className="btn btn-primary mx-2" type="submit" onClick={copytext}>Copy Text</button>
 
             <div className='container my-3'>
                 <h5>Text Summary</h5>
